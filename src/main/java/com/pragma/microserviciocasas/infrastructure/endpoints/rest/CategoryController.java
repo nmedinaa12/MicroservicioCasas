@@ -31,7 +31,7 @@ public class CategoryController {
     @Operation(
             summary = "Create Category",
             description = "Create category, name, description, auto-incrementing id",
-            tags = {"CreateCategories"},
+            tags = {"Create Categories"},
             requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
                     description = "Requires a json with name and description",
                     required = true,
@@ -59,7 +59,7 @@ public class CategoryController {
     @Operation(
             summary = "Get All Categories",
             description = "Retrieve a paginated list of categories with optional ordering",
-            tags = {"Categories"},
+            tags = {"Get Categories"},
             parameters = {
                     @Parameter(name = "page", description = "Page number (0-based index)", required = true, in = ParameterIn.QUERY),
                     @Parameter(name = "size", description = "Number of categories per page", required = true, in = ParameterIn.QUERY),
