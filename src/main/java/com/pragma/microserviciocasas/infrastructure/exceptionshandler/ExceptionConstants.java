@@ -9,4 +9,7 @@ public final class ExceptionConstants {
     public static final String CATEGORY_EXISTS_EXCEPTION = "The category already exists";
     public static final String PAGE_NUMBER_LESS_THAN_ZERO = "The page number cannot be less than zero";
     public static final String PAGE_SIZE_LESS_THAN_ONE = "The page size cannot be less than one";
+
+    //location
+    public static final String LOCATION_EXISTS_EXCEPTION = "Ya existe esta ubicacion";
 }

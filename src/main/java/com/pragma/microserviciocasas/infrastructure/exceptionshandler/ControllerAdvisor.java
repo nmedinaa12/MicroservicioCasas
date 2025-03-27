@@ -40,4 +40,18 @@ public class ControllerAdvisor {
                 LocalDateTime.now()));
     }
 
+
+    //location
+    @ExceptionHandler(DescriptionDepMaxSizeExceededException.class)
+    public ResponseEntity<ExceptionResponse> handleDescriptionDepMaxSizeExceededException(DescriptionDepMaxSizeExceededException exception) {
+        return ResponseEntity.badRequest().body(new ExceptionResponse(ExceptionConstants.DESCRIPTION_MAX_SIZE_MESSAGE,
+                LocalDateTime.now()));
+    }
+
+    @ExceptionHandler(LocationAlreadyExistsException.class)
+    public ResponseEntity<ExceptionResponse> handleLocationAlreadyExistsException(LocationAlreadyExistsException exception) {
+        return ResponseEntity.badRequest().body(new ExceptionResponse(ExceptionConstants.LOCATION_EXISTS_EXCEPTION,
+                LocalDateTime.now()));
+    }
+
 }
