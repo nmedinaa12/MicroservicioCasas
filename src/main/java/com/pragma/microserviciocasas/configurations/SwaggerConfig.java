@@ -6,7 +6,7 @@ import io.swagger.v3.oas.annotations.info.Info;
 
 @OpenAPIDefinition(
         info = @Info(
-                title = "API CATEGORIES",
+                title = "APIs MicroservicioCasas",
                 description = "-",
                 termsOfService = "_",
                 version = "1.0.0",

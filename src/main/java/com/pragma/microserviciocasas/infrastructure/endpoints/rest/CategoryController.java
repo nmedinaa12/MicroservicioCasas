@@ -26,11 +26,11 @@ public class CategoryController {
 
     @PostMapping("/")
     @Operation(
-            summary = "titulo",
-            description = "descripcion",
-            tags = {"etiqueta"},
+            summary = "Create Category",
+            description = "Create category, name, description, auto-incrementing id",
+            tags = {"CreateCategories"},
             requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
-                    description = "descripcion request body",
+                    description = "Requires a json with name and description",
                     required = true,
                     content = @Content(
                             mediaType = "application/json",
@@ -40,7 +40,7 @@ public class CategoryController {
             responses = {
                     @ApiResponse(
                             responseCode = "201",
-                            description = "Categoria creada",
+                            description = "Category created",
                             content = @Content(
                                     mediaType = "application/json",
                                     schema = @Schema(implementation = SaveCategoryResponse.class)
@@ -51,5 +51,4 @@ public class CategoryController {
     public ResponseEntity<SaveCategoryResponse> save(@RequestBody SaveCategoryRequest saveCategoryRequest) {
         return ResponseEntity.status(HttpStatus.CREATED).body(categoryService.save(saveCategoryRequest));
     }
-
 }
