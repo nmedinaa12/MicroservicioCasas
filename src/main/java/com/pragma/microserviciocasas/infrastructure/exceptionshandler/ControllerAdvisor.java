@@ -1,9 +1,7 @@
 package com.pragma.microserviciocasas.infrastructure.exceptionshandler;
 
 
-import com.pragma.microserviciocasas.domain.exceptions.CategoryAlreadyExistsException;
-import com.pragma.microserviciocasas.domain.exceptions.DescriptionMaxSizeExceededException;
-import com.pragma.microserviciocasas.domain.exceptions.NameMaxSizeExceededException;
+import com.pragma.microserviciocasas.domain.exceptions.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -27,6 +25,18 @@ public class ControllerAdvisor {
     @ExceptionHandler(CategoryAlreadyExistsException.class)
     public ResponseEntity<ExceptionResponse> handleCategoryAlreadyExistsException(CategoryAlreadyExistsException exception) {
         return ResponseEntity.badRequest().body(new ExceptionResponse(ExceptionConstants.CATEGORY_EXISTS_EXCEPTION,
+                LocalDateTime.now()));
+    }
+
+    @ExceptionHandler(PageNumberLessThanZero.class)
+    public ResponseEntity<ExceptionResponse> handlePageNumberLessThanZero(PageNumberLessThanZero exception) {
+        return ResponseEntity.badRequest().body(new ExceptionResponse(ExceptionConstants.PAGE_NUMBER_LESS_THAN_ZERO,
+                LocalDateTime.now()));
+    }
+
+    @ExceptionHandler(PageSizeLessThanOne.class)
+    public ResponseEntity<ExceptionResponse> handlePageSizeLessThanOne(PageSizeLessThanOne exception) {
+        return ResponseEntity.badRequest().body(new ExceptionResponse(ExceptionConstants.PAGE_SIZE_LESS_THAN_ONE,
                 LocalDateTime.now()));
     }
 
